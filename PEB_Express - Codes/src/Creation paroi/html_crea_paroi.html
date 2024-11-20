@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nommer et Colorer Paroi</title>
+  <link rel="stylesheet" href="styles_crea_paroi.css">
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <div class="logo-container">
+          <img src="logo_PEB_Express.png" alt="PEB Express Logo" class="logo">
+      </div>
+      <h1>CRÉATION PAROI</h1>
+    </header>  
+    <div class="form-group">
+      <label><br><strong>Type de paroi (obligatoire)</strong></label>
+      <div class="paroi-category">Parois légères</div>
+      <div class="button-group" id="type-group">
+        <button data-type="Fenetre" class="active">F<span>Fenêtre</span></button>
+        <button data-type="Porte">P<span>Porte</span></button>
+        <button data-type="MurRideau">MR<span>Mur Rideau</span></button>
+      </div>
+      <div class="paroi-category">Parois opaques</div>
+      <div class="button-group" id="type-group-opaque">
+        <button data-type="Mur">M<span>Mur</span></button>
+        <button data-type="Plancher">PCH<span>Sol - Plancher</span></button>
+        <button data-type="Toiture">T<span>Toiture</span></button>
+        <button data-type="BriqueDeVerre">BV<span>Brique de verre</span></button>
+        <button data-type="MurCapteur">MC<span>Mur Capteur</span></button>
+        <button data-type="Lanterneau">L<span>Lanterneau</span></button>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="indice_paroi">Indice de la paroi (01-99) (obligatoire)</label>
+      <input type="text" id="indice_paroi" name="indice_paroi" value="01" required>
+    </div>
+
+    <div class="form-group">
+      <label for="nom_paroi">Nom de base de la paroi (obligatoire)</label>
+      <input type="text" id="nom_paroi" name="nom_paroi" required>
+    </div>
+
+    <div class="form-group" id="angle-group">
+      <label for="angle">Angle entre axe y (vert) du modèle SU et au Nord réel du batiment (-360° à 360°) (obligatoire)</label>
+      <input type="number" id="angle" name="angle" min="-360" max="360" value="0" required>
+      <div id="angle-visualizer">
+        <div id="angle-circle"></div>
+        <div id="fixed-axis"></div>
+        <div id="angle-arrow"></div>
+        <div id="north-indicator">N</div>
+      </div>
+    </div>
+
+    <div class="optional-section">
+      <h3>Options facultatives</h3>
+
+      <div id="espace-adjacent-container">
+        <h3 id="espace-adjacent-label">Espace Adjacent</h3>
+        <div class="button-group" id="espace-adjacent-group">
+          <button data-space="EXT">EXT<span>Extérieur</span></button>
+          <button data-space="EAC">EAC<span>Espace chauffé/Mitoyen</span></button>
+          <button data-space="EANC">EANC<span>Espace non chauffé</span></button>
+          <button data-space="OPEB">OPEB<span>Autre Unité PEB</span></button>
+          <button data-space="MPEB">MPEB<span>Même unité PEB</span></button>
+          <button data-space="IND">IND<span>Espace Industriel</span></button>
+          <button data-space="SOL">SOL<span>Sol</span></button>
+          <button data-space="CAVE">CAVE<span>Cave</span></button>
+          <button data-space="VV">VV<span>Vide sanitaire</span></button>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>État de la Paroi</label>
+        <div class="button-group" id="etat-paroi-group">
+          <button data-state="N">Neuve</button>
+          <button data-state="R">Rénovée</button>
+          <button data-state="E">Existante</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="creation-section" id="creation-section">
+      <h3>Créer une nouvelle paroi</h3>
+      <div class="dimension-inputs">
+        <div class="form-group">
+          <label for="largeur">Largeur (m)</label>
+          <input type="number" id="largeur" name="largeur" min="0.1" step="0.1" value="1">
+        </div>
+        <div class="form-group">
+          <label for="hauteur">Hauteur (m)</label>
+          <input type="number" id="hauteur" name="hauteur" min="0.1" step="0.1" value="1">
+        </div>
+      </div>
+      <button id="create-face-button">Création d'une nouvelle paroi</button>
+    </div>
+
+    <div id="color-picker-container">
+      <h3>Sélecteur de couleur</h3>
+      <div class="color-controls">
+        <div id="color-wheel-container">
+          <canvas id="color-wheel" width="200" height="200"></canvas>
+          <div id="color-indicator"></div>
+        </div>
+        <div class="slider-container">
+          <input type="range" id="brightness-slider" min="0" max="100" value="50">
+        </div>
+      </div>
+      <div id="color-preview"></div>
+    </div>
+
+    <button id="submit-button">Colorer face sélectionnée</button>
+  </div>
+
+  <div id="info-bubble"></div>
+
+  <script src="script_crea_paroi.js"></script>
+</body>
+</html>
