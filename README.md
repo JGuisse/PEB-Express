@@ -3,7 +3,7 @@
 
 ## Introduction
 
-PEB Express est une extension professionnelle développée pour SketchUp 2017 qui permet d'ajouter une nouvelle manière dont les professionnels du bâtiment réalisent leurs métrés dans le cadre des missions PEB (Performance Énergétique des Bâtiments), des audits énergétiques ou plus généralement dans la construction en générale. En automatisant le processus de métré et d'export des données, PEB Express permet aux responsables et conseillers PEB d'améliorer significativement leur flux de travail tout en garantissant une précision accrue des données collectées.
+PEB Express est un outil développé sous la forme d'une extension SketchUp 2017, permetant d'optimiser la manière dont les professionnels du bâtiment réalisent leurs métrés dans le cadre de missions PEB (Performance Énergétique des Bâtiments), d'audits énergétiques ou plus généralement dans le secteur de la construction. En automatisant le processus de métré et d'export des données, PEB Express permet aux responsables et conseillers PEB d'améliorer significativement leur flux de travail tout en garantissant une précision accrue des données collectées.
 
 ## Présentation détaillée
 
