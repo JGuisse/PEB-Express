@@ -27,7 +27,7 @@ Le module "Création Paroi" permet une identification structurée des éléments
 - Murs rideaux
 - Éléments de façade légers
 
-**Parois lourdes**
+**Parois opaques**
 - Murs (intérieurs et extérieurs)
 - Toitures et complexes de toiture
 - Planchers et dalles
@@ -59,7 +59,7 @@ Le module "Métrés PEB" offre :
 - Validation des données avant export
 
 ## Remarques importantes
-N'étant pas développeur de formation, j'ai créé cet outil sur mon temps libre pour répondre à des besoins que je rencontrais quotidiennement dans le secteur PEB. Le code est loin d'être parfait et peut très certainement être fiabilisé et optimisé. Il reste d'ailleurs accessible et modifiable pour répondre au mieux aux besoin de chacun. Ce projet a été développé avec l'aide de l'assistant IA Claude, un des grands modèles de langage développés par Anthropic permettant une très grande aide dans l'apprentissage de nouveaux languages informatiques comme ça a pu être le cas ici.
+N'étant pas développeur de formation, j'ai créé cet outil sur mon temps libre pour répondre à des besoins que je rencontrais quotidiennement dans le secteur PEB. Le code est loin d'être parfait et peut très certainement être fiabilisé et optimisé. Il reste d'ailleurs accessible dans le dossier "PEB Express - codes sources" pour répondre au mieux aux besoins de chacun. Ce projet a été développé avec l'aide de l'assistant IA Claude, un des modèles de langage développés par Anthropic permettant une très grande aide dans l'apprentissage de nouveaux languages informatiques comme ça a pu être le cas ici.
 
 ## Spécifications techniques
 
