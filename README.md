@@ -3,13 +3,13 @@
 
 ## Introduction
 
-PEB Express est une extension professionnelle développée pour SketchUp 2017 qui révolutionne la manière dont les professionnels du bâtiment réalisent leurs métrés dans le cadre des missions PEB (Performance Énergétique des Bâtiments) et des audits énergétiques. En automatisant le processus de métré et d'export des données, PEB Express permet aux responsables et conseillers PEB d'optimiser significativement leur flux de travail tout en garantissant une précision accrue des données collectées.
+PEB Express est une extension professionnelle développée pour SketchUp 2017 qui permet d'ajouter une nouvelle manière dont les professionnels du bâtiment réalisent leurs métrés dans le cadre des missions PEB (Performance Énergétique des Bâtiments), des audits énergétiques ou plus généralement dans la construction en générale. En automatisant le processus de métré et d'export des données, PEB Express permet aux responsables et conseillers PEB d'améliorer significativement leur flux de travail tout en garantissant une précision accrue des données collectées.
 
 ## Présentation détaillée
 
-PEB Express a été conçu pour répondre aux besoins spécifiques des professionnels du secteur de la construction et de la performance énergétique. L'extension s'intègre parfaitement dans l'environnement SketchUp et offre une solution complète pour :
+PEB Express a été conçu pour répondre aux besoins spécifiques des professionnels du secteur de la performance énergétique (principalement responsable PEB en région Wallonne et conseiller PEB en région Bruxelloise) et de la construction. L'extension s'intègre parfaitement dans l'environnement SketchUp et offre une solution complète pour :
 
-- La caractérisation précise des éléments constructifs
+- La caractérisation simplifiée des éléments constructifs
 - L'extraction automatisée des métrés
 - L'export des données dans des formats standardisés
 - L'intégration directe avec le Logiciel PEB officiel
@@ -41,57 +41,50 @@ Chaque élément bénéficie d'une nomenclature spécifique et standardisée, fa
 
 Le module "Métrés PEB" offre :
 
-- Une visualisation claire des éléments caractérisés
+- Une visualisation claire des éléments caractérisés (surface, espace adjacent, orientation vitrage, ...)
 - Des outils de vérification et de contrôle des données
 - Des options d'export personnalisables
-- Une intégration directe avec les outils d'analyse
+- Une intégration directe avec les outils d'analyse (Logiciel PEB)
 
 ### Formats d'export supportés
 
 #### Export CSV
 - Format structuré pour analyse approfondie
 - Compatible avec tous les tableurs (Excel, LibreOffice, etc.)
-- Colonnes personnalisables selon les besoins
-- Génération automatique des métrés avec unités
+- Utilisation très rapide de ces données à l'aide de tableaux croisés dynamiques
 
 #### Export XML
 - Structure conforme aux exigences du Logiciel PEB
 - Import direct sans manipulation intermédiaire
 - Validation des données avant export
-- Conservation des métadonnées du projet
 
 ## Remarques importantes
-ATTENTION POTENTIELLEMENT BUG
+N'étant pas développeur de formation, j'ai créé cet outil sur mon temps libre pour répondre à des besoins que je rencontrais quotidiennement dans le secteur PEB. Le code est loin d'être parfait et peut très certainement être fiabilisé et optimisé. Il reste d'ailleurs accessible et modifiable pour répondre au mieux aux besoin de chacun. Ce projet a été développé avec l'aide de l'assistant IA Claude, un des grands modèles de langage développés par Anthropic permettant une très grande aide dans l'apprentissage de nouveaux languages informatiques comme ça a pu être le cas ici.
 
 ## Spécifications techniques
 
 ### Prérequis système
-- SketchUp 2017 (version gratuite ou Pro)
-- Système d'exploitation :
-  - Windows 10/11 (64 bits) recommandé
-  - Windows 7/8 supporté
-- Processeur : Intel Core i5 ou équivalent
-- Mémoire RAM : 8 GB recommandé (4 GB minimum)
-- Espace disque : 100 MB disponible
-- Résolution d'écran : 1920x1080 recommandée
+- SketchUp 2017 ou ultérieur (version gratuite ou Pro)
 
 ### Compatibilité
 - Compatibilité ascendante avec les versions ultérieures de SketchUp
 - Support des formats de fichier SketchUp (.skp)
-- Intégration avec les principaux logiciels PEB du marché
+- Dernières version du logiciel PEB intégrable : 14.5
 
 ## Installation
 
 1. Téléchargement :
    - Accédez au [dépôt officiel]()
-   - Téléchargez la dernière version stable
+   - Téléchargez le fichier "PEB_Express.rbz"
 
 2. Installation :
+   Dans Sketch Up, ouvrez le gestionnaire d'extension :
    ```
    Window > Extension Manager > Install Extension
    ```
-
-3. Activation :
+   Sélectionner le fichier .rbz précédemment téléchargé
+  
+4. Activation :
    - Redémarrez SketchUp
    - Vérifiez l'activation dans Window > Extensions
 
@@ -124,7 +117,3 @@ PEB Express est distribué sous licence MIT. Voir [LICENSE.md](LICENSE.md) pour 
 ---
 
 © [2024] PEB Express. Tous droits réservés.
-
-
-La deuxième extension permet la visualition des données et l'export de celles-ci :
-![Capture metres PEB](https://github.com/user-attachments/assets/ff3509cb-e185-4f5b-a394-a446afcb7694)
