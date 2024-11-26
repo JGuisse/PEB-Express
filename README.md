@@ -98,13 +98,11 @@ Une documentation complète est disponible :
 
 ## Support et maintenance
 
-### Support technique et signalement bugs
-- Support par email : [adresse_support]
+N'hésitez pas à me contacter en cas de besoin ou si une intégration plus spécifique à votre structure pourrait vous intéresser, je ferai le maximum pour vous répondre dans les plus brefs délais. 
 
-### Signalement de bugs
-- Utilisation du système d'issues GitHub
-- Description détaillée requise
-- Inclusion des logs et captures d'écran
+### Support technique et signalement bugs
+
+- Support par email : julien.guisse@gmail.com
 
 ## Licence
 
