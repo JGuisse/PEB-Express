@@ -96,6 +96,12 @@ N'hésitez pas à me contacter en cas de besoin ou si une intégration plus spé
 
 - adresse email : julien.guisse@gmail.com
 
+## Versions
+
+### Version 1.0.0
+
+Première version de parution
+
 ## Licence
 
 PEB Express est distribué sous licence MIT. Voir [LICENSE.md](LICENSE.md) pour plus de détails.
