@@ -1,16 +1,16 @@
 # PEB Express
-![logo_PEB_Express](https://github.com/user-attachments/assets/81eea7d6-0c88-4cbd-8537-130728d892e0)
+<img width="1085" alt="Logo GitHub" src="https://github.com/user-attachments/assets/34c31c4a-70c2-4026-8aff-988c2931e70c">
 
 ## Introduction
 
-PEB Express est un outil développé sous la forme d'une extension SketchUp 2017, permetant d'optimiser la manière dont les professionnels du bâtiment réalisent leurs métrés dans le cadre de missions PEB (Performance Énergétique des Bâtiments), d'audits énergétiques ou plus généralement dans le secteur de la construction. En automatisant le processus de métré et d'export des données, PEB Express permet aux responsables et conseillers PEB d'améliorer significativement leur flux de travail tout en garantissant une précision accrue des données collectées.
+PEB Express est un outil développé sous la forme d'une extension SketchUp 2017, permettant d'optimiser la réalisation de métrés dans le cadre de missions PEB (Performance Énergétique des Bâtiments), d'audits énergétiques ou plus généralement dans le secteur de la construction. En automatisant le processus de métré et d'export des données, il permet aux responsables et conseillers PEB d'améliorer significativement leur flux de travail tout en garantissant une précision accrue des données collectées.
 
 ## Présentation détaillée
 
-PEB Express a été conçu pour répondre aux besoins spécifiques des professionnels du secteur de la performance énergétique (principalement responsable PEB en région Wallonne et conseiller PEB en région Bruxelloise) et de la construction. L'extension s'intègre parfaitement dans l'environnement SketchUp et offre une solution complète pour :
+PEB Express a été conçu pour répondre aux besoins spécifiques des professionnels du secteur de la performance énergétique (principalement responsable PEB en région Wallonne et conseiller PEB en région Bruxelloise) et de la construction. L'extension s'intègre parfaitement dans l'environnement SketchUp et offre une solution complémentaire pour :
 
 - La caractérisation simplifiée des éléments constructifs
-- L'extraction automatisée des métrés
+- La visualisation des éléments compris dans le métré
 - L'export des données dans des formats standardisés
 - L'intégration directe avec le Logiciel PEB officiel
 
@@ -59,7 +59,7 @@ Le module "Métrés PEB" offre :
 - Validation des données avant export
 
 ## Remarques importantes
-N'étant pas développeur de formation, j'ai créé cet outil sur mon temps libre pour répondre à des besoins que je rencontrais quotidiennement dans le secteur PEB. Le code est loin d'être parfait et peut très certainement être fiabilisé et optimisé. Il reste d'ailleurs accessible dans le dossier "PEB Express - codes sources" pour répondre au mieux aux besoins de chacun. Ce projet a été développé avec l'aide de l'assistant IA Claude, un des modèles de langage développés par Anthropic permettant une très grande aide dans l'apprentissage de nouveaux languages informatiques comme ça a pu être le cas ici.
+N'étant pas développeur de formation, cet outil a été réalisé sur mon temps libre pour répondre à des besoins que je rencontrais quotidiennement dans le secteur PEB. Le code est loin d'être parfait et peut très certainement être fiabilisé et optimisé. Il reste d'ailleurs accessible dans le dossier "PEB Express - codes sources" pour répondre au mieux aux besoins de chacun.
 
 ## Spécifications techniques
 
@@ -67,8 +67,6 @@ N'étant pas développeur de formation, j'ai créé cet outil sur mon temps libr
 - SketchUp 2017 ou ultérieur (version gratuite ou Pro)
 
 ### Compatibilité
-- Compatibilité ascendante avec les versions ultérieures de SketchUp
-- Support des formats de fichier SketchUp (.skp)
 - Dernières version du logiciel PEB intégrable : 14.5
 
 ## Installation
@@ -87,14 +85,6 @@ N'étant pas développeur de formation, j'ai créé cet outil sur mon temps libr
 4. Activation :
    - Redémarrez SketchUp
    - Vérifiez l'activation dans Window > Extensions
-
-## Documentation
-
-Une documentation complète est disponible :
-- Guide d'utilisation détaillé
-- Tutoriels vidéo
-- FAQ et résolution des problèmes courants
-- Exemples de projets
 
 ## Support et maintenance
 
