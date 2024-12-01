@@ -18,7 +18,7 @@ PEB Express a été conçu pour répondre aux besoins spécifiques des professio
 
 #### 1. Module de caractérisation des parois
 
-![Capture creation paroi](https://github.com/user-attachments/assets/3cfefd6b-9e4f-4982-9082-590d55eb985d)
+<img width="810" alt="Capture Créa Paroi" src="https://github.com/user-attachments/assets/4a9b7de0-b5d8-420c-9900-5c18f3f5859c">
 
 Le module "Création Paroi" permet une identification structurée des éléments constructifs selon deux catégories principales :
 
@@ -37,7 +37,7 @@ Chaque élément bénéficie d'une nomenclature spécifique et standardisée, fa
 
 #### 2. Module de métré et d'export
 
-![Capture metres PEB](https://github.com/user-attachments/assets/ff3509cb-e185-4f5b-a394-a446afcb7694)
+<img width="1295" alt="Capture métrés PEB" src="https://github.com/user-attachments/assets/7951c2b8-1f01-4523-b5cc-438a3dfd6ae7">
 
 Le module "Métrés PEB" offre :
 
@@ -86,13 +86,15 @@ N'étant pas développeur de formation, cet outil a été réalisé sur mon temp
    - Redémarrez SketchUp
    - Vérifiez l'activation dans Window > Extensions
 
-## Support et maintenance
+<img width="1133" alt="Capture installation" src="https://github.com/user-attachments/assets/ddf0c574-c9e9-4706-a326-b46460b92d4e">
+
+## Support technique
 
 N'hésitez pas à me contacter en cas de besoin ou si une intégration plus spécifique à votre structure pourrait vous intéresser, je ferai le maximum pour vous répondre dans les plus brefs délais. 
 
-### Support technique et signalement bugs
+### Adresse de contact
 
-- Support par email : julien.guisse@gmail.com
+- adresse email : julien.guisse@gmail.com
 
 ## Licence
 
