@@ -1,5 +1,6 @@
 # PEB Express
-<img width="1085" alt="Logo GitHub" src="https://github.com/user-attachments/assets/34c31c4a-70c2-4026-8aff-988c2931e70c">
+<img width="1085" alt="Logo GitHub - Version 2" src="https://github.com/user-attachments/assets/ca51e677-4016-4c97-b0e6-4f9c4539ae5d">
+
 
 ## Introduction
 
@@ -90,7 +91,7 @@ N'étant pas développeur de formation, cet outil a été réalisé sur mon temp
 
 ## Support technique
 
-N'hésitez pas à me contacter en cas de besoin ou si une intégration plus spécifique à votre structure pourrait vous intéresser, je ferai le maximum pour vous répondre dans les plus brefs délais. 
+N'hésitez pas à me contacter en cas de besoin, je ferai le maximum pour vous répondre dans les plus brefs délais. 
 
 ### Adresse de contact
 
