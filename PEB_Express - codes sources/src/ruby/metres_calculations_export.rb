@@ -145,6 +145,31 @@ module Guisse
 =end    
         File.open(filename2, "wb") do |file|
           file.write("\uFEFF")
+          
+          file.puts "UNITÉS"
+          headers = ["Type", "Nom", "Volume (m³)","Surface Ach (m²)", "Ath (m²)", "RapportR", "Surface Rénovée", "RapportN", "Surface Neuve", "Nature des travaux", "Ventilation intensive"]
+          file.puts headers.join(separator)
+      
+          unites_infos.each do |_, info|
+            row = [
+              "Unité",
+              info[:name],
+              info[:volume].round(3).to_s.gsub('.', ','),
+              info[:surface_ach].to_s.gsub('.', ','),
+              info[:Ath].to_s.gsub('.', ','),
+              info[:RapportR].to_s.gsub('.', ','),
+              info[:surface_renovee].to_s.gsub('.', ','),
+              info[:RapportN].to_s.gsub('.', ','),
+              info[:surface_neuve].to_s.gsub('.', ','),
+              info[:nature_travaux].to_s.gsub('.', ','),
+              info[:ventilation_intensive].to_s.gsub('.', ',')
+            ]
+            file.puts row.join(separator)
+          end
+
+          file.puts ""
+          file.puts "FACES"
+
           headers = ["Type", "Groupe", "Matériau", "Surface (m²)", "Groupes adjacents", 
                     "Type de paroi", "ID de la paroi", "ID Espace adjacent","Espace adjacent", 
                     "Etat de la paroi", "Orientation","Inclinaison", "Longueur", "PEB Name", "ID PEB", "ID meme face"]
@@ -168,30 +193,6 @@ module Guisse
               info["Nom PEB"],
               info["ID PEB"],
               info["ID meme face"]
-            ]
-            file.puts row.join(separator)
-          end
-          
-          file.puts ""
-          file.puts ""
-      
-          file.puts "UNITÉS"
-          headers = ["Type", "Nom", "Volume (m³)","Surface Ach (m²)", "Ath (m²)", "RapportR", "Surface Rénovée", "RapportN", "Surface Neuve", "Nature des travaux", "Ventilation intensive"]
-          file.puts headers.join(separator)
-      
-          unites_infos.each do |_, info|
-            row = [
-              "Unité",
-              info[:name],
-              info[:volume].round(3).to_s.gsub('.', ','),
-              info[:surface_ach].to_s.gsub('.', ','),
-              info[:Ath].to_s.gsub('.', ','),
-              info[:RapportR].to_s.gsub('.', ','),
-              info[:surface_renovee].to_s.gsub('.', ','),
-              info[:RapportN].to_s.gsub('.', ','),
-              info[:surface_neuve].to_s.gsub('.', ','),
-              info[:nature_travaux].to_s.gsub('.', ','),
-              info[:ventilation_intensive].to_s.gsub('.', ',')
             ]
             file.puts row.join(separator)
           end

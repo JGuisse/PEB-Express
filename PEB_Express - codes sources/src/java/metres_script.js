@@ -658,3 +658,9 @@ if (window.sketchup) {
         window.location.href = callbackUrl;
     };
 }
+
+//code JavaScript pour le bouton caché
+document.getElementById('hidden_button').addEventListener('click', function() {
+    console.log('Tentative de lancement du simulateur de vol');
+    window.location.href = 'skp:launch_flight_simulator@';
+});
