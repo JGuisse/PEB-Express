@@ -189,10 +189,34 @@ module Guisse
       faces = selection.grep(Sketchup::Face)
       edges = selection.grep(Sketchup::Edge)
       
-      return if faces.empty?
+      # Filtrer les faces valides
+      valid_faces = faces.select do |face|
+        area = face.area
+        if area < 1  # 1m² comme seuil minimum
+          puts "Face ignorée : aire trop petite (#{area}m²)"
+          false
+        else
+          true
+        end
+      end
+      
+      return if valid_faces.empty?
       
       model.start_operation('elevation des surfaces', true)
-      @created_groups = extrude_selected_faces(faces, height, container_type)
+      @created_groups = extrude_selected_faces(valid_faces, height, container_type)
+
+      # Vérifier et supprimer les groupes trop petits
+      @created_groups.reject! do |group|
+        volume = group.volume * (INCH_TO_METER**3)
+        if volume < 1.0
+          puts "Groupe supprimé : volume = #{volume.round(2)} m³ (< 1 m³)"
+          # group.erase!
+          true
+        else
+          false
+        end
+      end
+
       color_all_surfaces(color_options)
       model.active_entities.erase_entities(edges) unless edges.empty?
       model.selection.clear
@@ -223,9 +247,20 @@ module Guisse
     def create_materials_elevated(model)
       materials = {}
       MATERIALS_ELEVATION.each do |key, data|
-        material = model.materials.add(data[:name])
-        material.color = data[:color]
-        materials[key] = material
+        # Chercher d'abord si le matériau existe déjà
+        existing_material = model.materials.find { |m| m.name == data[:name] }
+        
+        if existing_material
+          # Utiliser le matériau existant
+          materials[key] = existing_material
+          puts "Utilisation du matériau existant : #{data[:name]}"
+        else
+          # Créer un nouveau matériau si nécessaire
+          material = model.materials.add(data[:name])
+          material.color = data[:color]
+          materials[key] = material
+          puts "Création d'un nouveau matériau : #{data[:name]}"
+        end
       end
       materials
     end
@@ -235,6 +270,9 @@ module Guisse
       created_groups = []
       
       faces.each_with_index do |face, index|
+        # Vérification supplémentaire de la validité de la face
+        next unless face.valid? && face.vertices.length >= 3
+        
         container, entities = create_container(model, container_type, index, face)
         created_groups << container
         
@@ -244,13 +282,101 @@ module Guisse
           Geom::Point3d.new(pt.x - origin[0], pt.y - origin[1], pt.z - origin[2])
         }
         
-        new_face = entities.add_face(points)
-        new_face.reverse! if new_face.normal.z < 0
-        new_face.pushpull(height.m)
+        # Vérification supplémentaire que les points forment une face valide
+        begin
+          new_face = entities.add_face(points)
+          if new_face && new_face.valid? && new_face.area > 1
+            new_face.reverse! if new_face.normal.z < 0
+            new_face.pushpull(height.m)
+          else
+            puts "Face invalide créée pour le groupe #{index + 1} - Suppression du groupe"
+            container.erase! if container.valid?
+            created_groups.pop
+          end
+        rescue StandardError => e
+          puts "Erreur lors de la création de la face pour le groupe #{index + 1}: #{e.message}"
+          container.erase! if container.valid?
+          created_groups.pop
+        end
       end
       
       model.active_entities.erase_entities(faces)
       created_groups
+    end
+
+    def project_points_to_plane(points)
+      return points if points.length < 3
+      
+      # Calculer le plan moyen
+      normal = calculate_average_normal(points)
+      point_on_plane = geometric_center(points)
+      
+      # Projeter chaque point sur le plan
+      points.map { |p|
+        project_point_to_plane(p, point_on_plane, normal)
+      }
+    end
+    
+    def calculate_average_normal(points)
+      return Geom::Vector3d.new(0, 0, 1) if points.length < 3
+      
+      # Calculer la normale en utilisant les trois premiers points
+      p1 = Geom::Point3d.new(points[0])
+      p2 = Geom::Point3d.new(points[1])
+      p3 = Geom::Point3d.new(points[2])
+      
+      vector1 = p2.vector_to(p1)
+      vector2 = p2.vector_to(p3)
+      
+      normal = vector1.cross(vector2)
+      normal.normalize!
+      normal
+    end
+    
+    def geometric_center(points)
+      return [0, 0, 0] if points.empty?
+      
+      sum = points.reduce([0, 0, 0]) { |acc, p| 
+        [acc[0] + p[0], acc[1] + p[1], acc[2] + p[2]]
+      }
+      
+      count = points.length.to_f
+      [sum[0]/count, sum[1]/count, sum[2]/count]
+    end
+    
+    def project_point_to_plane(point, point_on_plane, normal)
+      # Vecteur du point sur le plan au point à projeter
+      v = [
+        point[0] - point_on_plane[0],
+        point[1] - point_on_plane[1],
+        point[2] - point_on_plane[2]
+      ]
+      
+      # Calculer la distance du point au plan
+      dist = (v[0] * normal.x + v[1] * normal.y + v[2] * normal.z)
+      
+      # Projeter le point sur le plan
+      [
+        point[0] - dist * normal.x,
+        point[1] - dist * normal.y,
+        point[2] - dist * normal.z
+      ]
+    end
+    
+    def points_are_valid?(points)
+      return false if points.length < 3
+      
+      # Vérifier que tous les points sont des Point3d
+      return false unless points.all? { |p| p.is_a?(Geom::Point3d) }
+      
+      # Vérifier que les points ne sont pas tous alignés
+      if points.length == 3
+        vector1 = points[0].vector_to(points[1])
+        vector2 = points[0].vector_to(points[2])
+        return false if vector1.parallel?(vector2)
+      end
+      
+      true
     end
 
     def color_all_surfaces(color_options)
