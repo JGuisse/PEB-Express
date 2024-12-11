@@ -75,6 +75,8 @@ N'étant pas développeur de formation, cet outil a été réalisé sur mon temp
 1. Téléchargement :
    - Accédez au [dépôt officiel]()
    - Téléchargez le fichier "PEB_Express.rbz"
+     
+  ![Capture téléchargement](https://github.com/user-attachments/assets/60e105a2-a4ac-478e-ae02-01d5b03fc34c)
 
 2. Installation :
    Dans Sketch Up, ouvrez le gestionnaire d'extension :
