@@ -91,9 +91,9 @@ N'étant pas développeur de formation, cet outil a été réalisé sur mon temp
 
 <img width="1133" alt="Capture installation" src="https://github.com/user-attachments/assets/ddf0c574-c9e9-4706-a326-b46460b92d4e">
 
-## Support technique
+## Questions ou remarques
 
-N'hésitez pas à me contacter en cas de besoin, je ferai le maximum pour vous répondre dans les plus brefs délais. 
+N'hésitez pas à ma faire part de vos retours ou à me contacter en cas de besoin, je ferai le maximum pour vous répondre dans les plus brefs délais. 
 
 ### Adresse de contact
 
@@ -111,7 +111,7 @@ PEB Express est distribué sous licence MIT. Voir [LICENSE.md](LICENSE.md) pour 
 
 ## Équipe et contacts
 
-- Développement/Support : Guisse Julien
+- Développement : Guisse Julien
 
 ---
 
