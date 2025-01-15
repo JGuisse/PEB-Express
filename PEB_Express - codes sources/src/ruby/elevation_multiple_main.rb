@@ -41,136 +41,146 @@ module Guisse
       @dialog_extrude = UI::WebDialog.new("Elevation des surfaces", false, "ExtrustionTool", 320, 420)
       html_content = '
         <html>
-        <head>
-          <meta charset="UTF-8">
-          <style>
-            body {
-              font-family: system-ui, -apple-system, sans-serif;
-              padding: 20px;
-              background: #f5f5f5;
-              color: #333;
-            }
-            .container {
-              background: white;
-              padding: 20px;
-              border-radius: 8px;
-              box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            }
-            .input-group {
-              margin-bottom: 20px;
-            }
-            .input-group h3 {
-              color: #2c3e50;
-              font-size: 16px;
-              margin-bottom: 12px;
-            }
-            input[type="number"] {
-              width: 100%;
-              padding: 8px;
-              border: 1px solid #ddd;
-              border-radius: 4px;
-              font-size: 14px;
-            }
-            .radio-group {
-              display: flex;
-              gap: 15px;
-              margin: 10px 0;
-            }
-            .checkbox-group {
-              margin-bottom: 12px;
-            }
-            .checkbox-group label {
-              display: flex;
-              align-items: center;
-              gap: 8px;
-              cursor: pointer;
-            }
-            button {
-              width: 100%;
-              padding: 10px;
-              background: #2196F3;
-              color: white;
-              border: none;
-              border-radius: 4px;
-              font-size: 14px;
-              cursor: pointer;
-              transition: background 0.3s;
-            }
-            button:hover {
-              background: #1976D2;
-            }
-            input[type="checkbox"] {
-              width: 16px;
-              height: 16px;
-            }
-          </style>
-        </head>
-        <body>
-          <div class="container">
-            <div class="input-group">
-              <h3>Hauteur (mètres)</h3>
-              <input type="number" id="height" step="0.1" min="0">
-            </div>
-            
-            <div class="input-group">
-              <h3>Type de conteneur</h3>
-              <div class="radio-group">
-                <label>
-                  <input type="radio" name="container" value="group" checked>
-                  Groupe
-                </label>
-                <label>
-                  <input type="radio" name="container" value="component">
-                  Composant
-                </label>
+          <head>
+            <meta charset="UTF-8">
+            <style>
+              body {
+                font-family: system-ui, -apple-system, sans-serif;
+                padding: 20px;
+                background: #f5f5f5;
+                color: #333;
+              }
+              .container {
+                background: white;
+                padding: 20px;
+                border-radius: 8px;
+                box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+              }
+              .input-group {
+                margin-bottom: 20px;
+              }
+              .input-group h3 {
+                color: #2c3e50;
+                font-size: 16px;
+                margin-bottom: 12px;
+              }
+              input[type="number"] {
+                width: 100%;
+                padding: 8px;
+                border: 1px solid #ddd;
+                border-radius: 4px;
+                font-size: 14px;
+              }
+              .radio-group {
+                display: flex;
+                gap: 15px;
+                margin: 10px 0;
+              }
+              .checkbox-group {
+                margin-bottom: 12px;
+              }
+              .checkbox-group label {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                cursor: pointer;
+              }
+              button {
+                width: 100%;
+                padding: 10px;
+                background: #2196F3;
+                color: white;
+                border: none;
+                border-radius: 4px;
+                font-size: 14px;
+                cursor: pointer;
+                transition: background 0.3s;
+              }
+              button:hover {
+                background: #1976D2;
+              }
+              input[type="checkbox"] {
+                width: 16px;
+                height: 16px;
+              }
+            </style>
+          </head>
+          <body>
+            <div class="container">
+              <div class="input-group">
+                <h3>Hauteur (mètres)</h3>
+                <input type="text" id="height" pattern="[0-9,\.]*">
               </div>
+              
+              <div class="input-group">
+                <h3>Type de conteneur</h3>
+                <div class="radio-group">
+                  <label>
+                    <input type="radio" name="container" value="group" checked>
+                    Groupe
+                  </label>
+                  <label>
+                    <input type="radio" name="container" value="component">
+                    Composant
+                  </label>
+                </div>
+              </div>
+
+              <div class="input-group">
+                <h3>Surfaces à colorer</h3>
+                <div class="checkbox-group">
+                  <label>
+                    <input type="checkbox" id="color_adjacent" checked>
+                    Murs adjacents
+                  </label>
+                </div>
+                <div class="checkbox-group">
+                  <label>
+                    <input type="checkbox" id="color_exterior" checked>
+                    Murs extérieurs
+                  </label>
+                </div>
+                <div class="checkbox-group">
+                  <label>
+                    <input type="checkbox" id="color_floor" checked>
+                    Planchers
+                  </label>
+                </div>
+                <div class="checkbox-group">
+                  <label>
+                    <input type="checkbox" id="color_roof" checked>
+                    Toitures
+                  </label>
+                </div>
+              </div>
+
+              <button onclick="submitValues()">Valider</button>
             </div>
 
-            <div class="input-group">
-              <h3>Surfaces à colorer</h3>
-              <div class="checkbox-group">
-                <label>
-                  <input type="checkbox" id="color_adjacent" checked>
-                  Murs adjacents
-                </label>
-              </div>
-              <div class="checkbox-group">
-                <label>
-                  <input type="checkbox" id="color_exterior" checked>
-                  Murs extérieurs
-                </label>
-              </div>
-              <div class="checkbox-group">
-                <label>
-                  <input type="checkbox" id="color_floor" checked>
-                  Planchers
-                </label>
-              </div>
-              <div class="checkbox-group">
-                <label>
-                  <input type="checkbox" id="color_roof" checked>
-                  Toitures
-                </label>
-              </div>
-            </div>
+            <script>
+              function submitValues() {
+                // Récupère la valeur de hauteur et remplace la virgule par un point si nécessaire
+                var heightInput = document.getElementById("height").value;
+                var height = heightInput.replace(",", ".");
+                
+                // Vérifie si la valeur est un nombre valide
+                if (isNaN(parseFloat(height)) || !isFinite(height)) {
+                  alert("Veuillez entrer une hauteur valide");
+                  return;
+                }
 
-            <button onclick="submitValues()">Valider</button>
-          </div>
-
-          <script>
-            function submitValues() {
-              var height = document.getElementById("height").value;
-              var container = document.querySelector("input[name=container]:checked").value;
-              var colorOptions = {
-                adjacent: document.getElementById("color_adjacent").checked,
-                exterior: document.getElementById("color_exterior").checked,
-                floor: document.getElementById("color_floor").checked,
-                roof: document.getElementById("color_roof").checked
-              };
-              window.location = "skp:submit@" + height + "@" + container + "@" + JSON.stringify(colorOptions);
-            }
-          </script>
-        </body>
+                var container = document.querySelector("input[name=container]:checked").value;
+                var colorOptions = {
+                  adjacent: document.getElementById("color_adjacent").checked,
+                  exterior: document.getElementById("color_exterior").checked,
+                  floor: document.getElementById("color_floor").checked,
+                  roof: document.getElementById("color_roof").checked
+                };
+                
+                window.location = "skp:submit@" + height + "@" + container + "@" + JSON.stringify(colorOptions);
+              }
+            </script>
+          </body>
         </html>'
 
       @dialog_extrude.set_html(html_content)
@@ -210,7 +220,7 @@ module Guisse
         volume = group.volume * (INCH_TO_METER**3)
         if volume < 1.0
           puts "Groupe supprimé : volume = #{volume.round(2)} m³ (< 1 m³)"
-          # group.erase!
+          group.erase!
           true
         else
           false

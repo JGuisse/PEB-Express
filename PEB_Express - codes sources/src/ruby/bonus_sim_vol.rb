@@ -358,9 +358,9 @@ module Guisse
 
 
     # Ajouter un élément de menu pour démarrer le simulateurVol
-    plugin_menu = UI.menu("Plugins")
-    plugin_menu.add_item("SimulateurVol de Vol") { start_simulateurVol }
+    # plugin_menu = UI.menu("Plugins")
+    # plugin_menu.add_item("SimulateurVol de Vol") { start_simulateurVol }
 
-    puts "SimulateurVol de vol chargé. Allez dans Plugins > SimulateurVol de Vol pour commencer."
+    # puts "SimulateurVol de vol chargé. Allez dans Plugins > SimulateurVol de Vol pour commencer."
   end
 end
