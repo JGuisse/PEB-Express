@@ -5,7 +5,6 @@ module Guisse
   
       # Liste des fichiers à charger (chemins relatifs)
       FILES_TO_LOAD = [
-        'ruby/elevation_multiple_main.rb',
         'ruby/metres_calculations_export.rb',
         'ruby/metres_collect2XML.rb',
         'ruby/metres_face_extraction.rb',
