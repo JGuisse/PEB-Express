@@ -5,6 +5,7 @@ require 'json'
 
 require_relative 'metres_face_extraction'
 require_relative 'metres_calculations_export'
+require_relative 'bonus_sim_vol'
 
 module Guisse
   module PEBExpress
@@ -199,18 +200,22 @@ module Guisse
           reset_ach(entity_id)
         end
 
+        @dialog_metres.add_action_callback("launch_flight_simulator") do |context|
+          launch_flight_simulator
+        end
+
         @dialog_metres.show
       end
 
       def export_excel
-        filepath1 = UI.savepanel("Enregistrer les fichiers Excels générés", "~", "excel_genere.csv")
+        filepath1 = UI.savepanel("Enregistrer le fichier Excel généré", "~", "excel_genere.csv")
         return unless filepath1
         filepath1 += ".csv" unless filepath1.end_with?(".csv")
 
         # Export des données originales
         export_to_csv(@face_infos, @unites_infos, @fused_faces_infos, filepath1)
 
-        UI.messagebox("Fichiers Excel générés et sauvegardés avec succès!")
+        UI.messagebox("Fichier Excel généré et sauvegardé avec succès!")
       end
 
       def export_xml
@@ -314,6 +319,16 @@ module Guisse
           puts "unites_infos mis à jour avec le nouveau commentaire"
         else
           puts "Aucune entrée trouvée dans unites_infos pour cette entité"
+        end
+      end
+
+      def launch_flight_simulator
+        puts "Lancement du simulateur de vol..."
+        begin
+          start_simulateurVol
+        rescue => e
+          puts "Erreur lors du lancement du simulateur: #{e.message}"
+          puts e.backtrace
         end
       end
 

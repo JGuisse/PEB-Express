@@ -576,3 +576,17 @@ tr:last-child td {
         padding: 16px;
     }
 }
+
+.hidden-button {
+    background: none;
+    border: none;
+    color: inherit;
+    font: inherit;
+    padding: 0;
+    cursor: default;
+    text-align: left;
+}
+
+.hidden-button:hover {
+    color: inherit;
+}
